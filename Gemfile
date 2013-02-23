@@ -38,6 +38,7 @@ gem 'jquery-rails'
 # gem 'ruby-debug19', :require => 'ruby-debug'
 group :development do
   gem 'rspec-rails'
+  gem 'annotate', '2.5.0'
 end
 
 group :test do
