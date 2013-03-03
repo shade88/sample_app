@@ -5,6 +5,24 @@ class UsersController < ApplicationController
   end
 
   def new
+    @user=User.new
     @title = "Sign up"
+  end
+
+  def create
+    @user = User.new(params[:user])
+    if @user.save
+      # Обработка успешного сохранения.
+      flash[:success] = "Welcome to the Sample App!"
+      redirect_to @user
+      #render 'show'
+    else
+      @title = "Sign up"
+      #reset password
+      @user.name="sasa"
+      @user.password="123"
+      @user.password_confirmation="123"
+      render 'new'
+    end
   end
 end
